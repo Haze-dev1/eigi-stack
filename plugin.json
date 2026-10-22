@@ -1,0 +1,22 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "eigi-stack",
+  "version": "0.5.1",
+  "description": "understand before changing, follow the Eigi standards, delete more than you add, prove it securely, verify it against the running stack, write it plainly.",
+  "license": "MIT",
+  "keywords": [
+    "eigi",
+    "how",
+    "why",
+    "architect",
+    "ponytail",
+    "security",
+    "unslop",
+    "testing",
+    "verification",
+    "eigi-test",
+    "grilling",
+    "review",
+    "fixes"
+  ]
+}

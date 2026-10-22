@@ -1,0 +1,119 @@
+{
+  "stack": "eigi-stack",
+  "version": "0.5.1",
+  "assembled": "2026-10-22",
+  "note": "Skills are copied verbatim except where listed under 'modified'. 0.2.0 added lrn-test; 0.2.1 added grilling + grill-me; 0.3.0 rewrote eigi-review; 0.4.0 renamed lrn-test to eigi-test and made it profile-driven; 0.5.0 merged the four security skills into two and folded teach into how.",
+  "sources": [
+    {
+      "id": "pstack",
+      "repo": "https://github.com/cursor/plugins",
+      "path": "pstack/skills",
+      "version": "0.15.29",
+      "commit": "d1453c11d1dde9714d4c313c97d3a68432265c7f",
+      "commitDate": "2026-10-22T03:27:27Z",
+      "skills": [
+        "how",
+        "why",
+        "architect",
+        "figure-it-out",
+        "in-your-own-words",
+        "unslop",
+        "technical-writing"
+      ]
+    },
+    {
+      "id": "lrn",
+      "repo": "/home/haze/Projects/Eigi/lrn/.codex/skills",
+      "skills": [
+        "eigi-backend-standards",
+        "eigi-frontend-standards"
+      ]
+    },
+    {
+      "id": "review",
+      "repo": "/home/haze/Projects/review/skills",
+      "skills": [
+        "eigi-review"
+      ]
+    },
+    {
+      "id": "global-claude",
+      "repo": "/home/haze/.claude/skills",
+      "skills": [
+        "eigi-scope-discipline",
+        "ponytail",
+        "ponytail-review",
+        "grilling",
+        "grill-me"
+      ]
+    },
+    {
+      "id": "arena",
+      "repo": "/home/haze/Projects/Skills-testing-arena/.claude/skills",
+      "skills": [
+        "eigi-security-review",
+        "eigi-security-fixes",
+        "eigi-test"
+      ]
+    }
+  ],
+  "excluded": {
+    "pstack": [
+      "arena",
+      "swarm",
+      "poteto-mode",
+      "principle-laziness-protocol",
+      "principle-separate-before-serializing-shared-state"
+    ],
+    "reason": "not requested; referenced by included skills, see README > Gaps"
+  },
+  "reverified": "2026-10-22",
+  "modified": [
+    {
+      "skill": "eigi-backend-standards",
+      "upstream": "Eigi/lrn/.codex/skills/eigi-backend-standards",
+      "change": "removed the agent-360/backend/vaani_core external reference; folder template and examples are now self-contained",
+      "upstream_diverged": true
+    },
+    {
+      "skill": "eigi-security-review",
+      "date": "2026-10-22",
+      "source": "review-app-security + security-gate + security-review (this arena) and security-review (~/.claude/skills)",
+      "was": "4 skills, 654 SKILL.md lines, 300 KB: a design review flow, a policy overlay with a duplicate output contract, a scanner wrapper, and a 21-file catalogue only the wrapper read",
+      "now": "1 skill, 276 lines + references/: steps 0-8, catalog demoted to references/catalog/ and loaded on demand, one output contract ending in BLOCK / PROCEED WITH NOTES, strictness rules kept, scanners run before triage, hardcoded .claude/skills probe and the seven unwritten guides fixed",
+      "upstream_diverged": true
+    },
+    {
+      "skill": "eigi-security-fixes",
+      "date": "2026-10-22",
+      "source": "apply-security-fixes (this arena)",
+      "was": "96 lines, step 4 called a fix-verification mode that lived in another skill",
+      "now": "128 lines, fix verification inlined as its own step with the four criteria and fixed/partial/regressed, review handoff renamed",
+      "upstream_diverged": true
+    },
+    {
+      "skill": "how",
+      "date": "2026-10-22",
+      "source": "pstack how (cursor/plugins) + pstack teach",
+      "was": "36 lines of exploration procedure; teach (21 lines) composed it with why to produce an explanation",
+      "now": "50 lines, teaching mode folded in as its own section, dead pstack-models.mdc / poteto-mode spawn paragraph replaced with the real read-only subagent contract",
+      "upstream_diverged": true
+    },
+    {
+      "skill": "eigi-test",
+      "date": "2026-10-22",
+      "source": "this arena's .claude/skills/lrn-test (via the LRN repo)",
+      "was": "106 lines, LRN-only: repo paths, ports, tracker, roles and commands inline",
+      "now": "step 0 resolves a six-line project profile; seven-front method unchanged; LRN specifics in a 'LRN profile' section + references/lrn.md; portable script paths",
+      "upstream_diverged": true
+    },
+    {
+      "skill": "eigi-review",
+      "date": "2026-10-22",
+      "source": "/home/haze/Projects/review/skills/eigi-review",
+      "was": "222 lines, diff-only scope, Eigi conventions hardcoded in the lenses",
+      "now": "265 lines, diff + project modes, profile resolution step, Eigi conventions moved to an 'Eigi profile' section",
+      "upstream_diverged": true
+    }
+  ]
+}
