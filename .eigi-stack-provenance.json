@@ -1,8 +1,8 @@
 {
   "stack": "eigi-stack",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "assembled": "2026-10-22",
-  "note": "Skills are copied verbatim except where listed under 'modified'. 0.2.0 added lrn-test; 0.2.1 added grilling + grill-me; 0.3.0 rewrote eigi-review; 0.4.0 renamed lrn-test to eigi-test and made it profile-driven; 0.5.0 merged the four security skills into two and folded teach into how.",
+  "note": "Skills are copied verbatim except where listed under 'modified'. 0.2.0 added lrn-test; 0.2.1 added grilling + grill-me; 0.3.0 rewrote eigi-review; 0.4.0 renamed lrn-test to eigi-test and made it profile-driven; 0.5.0 merged the four security skills into two and folded teach into how. 0.6.0 rewrote the pstack references in architect, figure-it-out, why and technical-writing to point at shipped skills, and made architect and figure-it-out stop for sign-off.",
   "sources": [
     {
       "id": "pstack",
@@ -65,7 +65,7 @@
       "principle-laziness-protocol",
       "principle-separate-before-serializing-shared-state"
     ],
-    "reason": "not requested; referenced by included skills, see README > Gaps"
+    "reason": "not requested; references to them in included skills were rewritten in 0.6.0"
   },
   "reverified": "2026-10-22",
   "modified": [
@@ -113,6 +113,38 @@
       "source": "/home/haze/Projects/review/skills/eigi-review",
       "was": "222 lines, diff-only scope, Eigi conventions hardcoded in the lenses",
       "now": "265 lines, diff + project modes, profile resolution step, Eigi conventions moved to an 'Eigi profile' section",
+      "upstream_diverged": true
+    },
+    {
+      "skill": "architect",
+      "date": "2026-10-22",
+      "source": "pstack architect (cursor/plugins)",
+      "was": "Phase B ran the unshipped arena skill with pstack-models.mdc runner slugs; Phase C checkpoint was opt-in; eight principle-skill pointers",
+      "now": "candidates produced in-skill or one subagent each on the default model; Phase C always stops for sign-off; interrogate -> grilling; principle pointers dropped, rules kept (SKILL.md, runner-prompt.md, rationale-template.md)",
+      "upstream_diverged": true
+    },
+    {
+      "skill": "figure-it-out",
+      "date": "2026-10-22",
+      "source": "pstack figure-it-out (cursor/plugins)",
+      "was": "first step read poteto-mode; reversible work proceeded without a checkpoint; pointers to arena, laziness-protocol, show-me-your-work and seven principle skills",
+      "now": "poteto-mode step removed; Phase A waits for a go-ahead; arena -> architect, laziness-protocol -> ponytail, show-me-your-work -> decision log in the plan file; principle pointers dropped, rules kept",
+      "upstream_diverged": true
+    },
+    {
+      "skill": "why",
+      "date": "2026-10-22",
+      "source": "pstack why (cursor/plugins)",
+      "was": "model slugs from pstack-models.mdc, poteto-mode subagent pointer, Cursor generalPurpose/readonly and mcps/ discovery",
+      "now": "default model, general-purpose subagents with MCP access, MCP tools available in the session",
+      "upstream_diverged": true
+    },
+    {
+      "skill": "technical-writing",
+      "date": "2026-10-22",
+      "source": "pstack technical-writing (cursor/plugins)",
+      "was": "mentioned swarm logs",
+      "now": "says agent logs",
       "upstream_diverged": true
     }
   ]

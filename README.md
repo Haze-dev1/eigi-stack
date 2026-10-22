@@ -4,9 +4,6 @@ A bundled set of skills for Eigi work: understand the code before changing it,
 follow the repo's backend/frontend standards, delete more than you add, prove it
 securely, verify it against the running stack, and write it down plainly.
 
-Assembled from four sources. Every skill is copied verbatim except the four
-reworked here (see [Modified](#modified)).
-
 ## Layout
 
 ```
@@ -77,22 +74,9 @@ eigi-stack/
 
 ## Gaps
 
-Five pstack skills were left out, so a few references point at skills this stack
-doesn't ship. They read fine; the skill just can't fan out the way the text
-assumes.
-
-| Referenced | Where | What's missing |
-|---|---|---|
-| `arena` | `architect/SKILL.md`, `figure-it-out/SKILL.md`, `architect/references/rationale-template.md` | The link `../../arena/SKILL.md` is dangling. Architect can't run its Phase B candidate fan-out. |
-| `swarm` | `technical-writing/SKILL.md` | Only mentioned as "don't paste swarm logs". Harmless. |
-| `poteto-mode` | `how/`, `why/`, `figure-it-out/` | The "Subagents section" reference. No replacement for the reasoning-level/speed guidance. |
-| `laziness-protocol` | `figure-it-out/`, referenced twice | Principle skill, not bundled. `ponytail` covers the same ground. |
-| `separate-before-serializing-shared-state` | `figure-it-out/`, referenced twice | Principle skill, not bundled. |
-
-Three pstack skills also read a `pstack-models.mdc` rule for per-role model
-slugs, with defaults `claude-opus-5-5-xhigh` and `grok-4.7-xhigh-fast`. That rule
-doesn't exist here and neither do those models, so every spawn falls through to
-the default and reports the rejection.
+The pstack skills (`architect`, `figure-it-out`, `why`, `technical-writing`)
+used to name pstack skills and Cursor settings this stack does not ship. Those
+references were rewritten to point at what is here; see [Modified](#modified).
 
 ### Paths that assume an install location
 
@@ -126,13 +110,17 @@ isn't: copy both if you want ADR-and-glossary capture during an interview.
 | `eigi-security-fixes` | `apply-security-fixes`, 96 lines | Now the only place fix verification lives: the four criteria and `fixed` / `partial` / `regressed` moved in from the review, so the old cross-skill "run fix-verification mode" call is gone. Re-verification runs against the diff the fix produced. |
 | `how` | pstack `how`, 36 lines | Teaching mode folded in from `teach` (21 lines) and the dead `pstack-models.mdc` / `poteto-mode` spawn paragraph replaced with what a read-only subagent actually is. `teach` was pure composition over `how` + `why`. |
 | `eigi-backend-standards` | `Eigi/lrn/.codex/skills/`, 109 lines | De-referenced. It named `agent-360/backend/vaani_core` as the canonical implementation, a path that does not exist anywhere on this machine, so every "go and read the reference" instruction dead-ended. The rules, the folder template, and `references/examples.md` now stand on their own. |
+| `architect` | pstack `architect` | Phase B no longer runs `arena`: it produces two or more candidates itself, or one subagent each on the default model, and records the synthesis in the rationale. Phase C now always stops for sign-off. `interrogate` became `grilling`; the `pstack-models.mdc` runner slugs and every "per the X principle skill" pointer were dropped with the rules kept, here and in `references/runner-prompt.md` and `references/rationale-template.md`. |
+| `figure-it-out` | pstack `figure-it-out` | Dropped the read-`poteto-mode` first step and every principle-skill pointer, keeping each rule. Phase A now waits for a go-ahead. `arena` and `laziness-protocol` became `architect` and `ponytail`; `show-me-your-work` became a decision log kept in the plan file. |
+| `why` | pstack `why` | Replaced the `pstack-models.mdc` slugs, the `poteto-mode` subagent pointer, and the Cursor `generalPurpose` / `mcps/` instructions with the default model and the MCP tools available in the session. |
+| `technical-writing` | pstack `technical-writing` | "swarm logs" became "agent logs". |
 | `eigi-review` | `Projects/review/skills/eigi-review`, 222 lines | Rewritten to 265 lines. Two modes: **diff** (default, unchanged job) and **project** (whole-tree audit, risk-ordered, with a coverage map). Scope is now derived rather than assumed: step 1 assembles a five-line contract from standards skills, repo docs, and CI config, so the lenses work on any stack. Eigi's conventions survive intact as the `Eigi profile` section, which also carries the Overrides. **Diverged from upstream — do not replace with a fresh copy.** |
 
 ## Sources
 
 | Skills | Copied from |
 |---|---|
-| `how` (modified) `why` `architect` `figure-it-out` `in-your-own-words` `unslop` `technical-writing` | `cursor/plugins` → `pstack/skills/` at `d1453c1` |
+| `how` `why` `architect` `figure-it-out` `technical-writing` (all modified) `in-your-own-words` `unslop` | `cursor/plugins` → `pstack/skills/` at `d1453c1` |
 | `eigi-backend-standards` `eigi-frontend-standards` | `Eigi/lrn/.codex/skills/` |
 | `eigi-review` (modified — see above) | `Projects/review/skills/eigi-review` |
 | `eigi-scope-discipline` `ponytail` `ponytail-review` `grilling` `grill-me` | `~/.claude/skills/` |
